@@ -5,7 +5,7 @@ It's small Project to learn about Client-Server-DB connections, to be built on a
 The Skeleton Server was created using the Express Application Generator using the Pug template library and no CSS engine.
 Note that it is not a secure Application!
 
-
+- Port and Server URL are set in the www file in /bin
 - For the connection the String in config.js has to be set.
 
 
