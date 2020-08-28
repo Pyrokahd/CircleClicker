@@ -37,8 +37,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/index', indexRouter);  //BeimPfad localhost:3000/index wird index.js verwendet , der request wird an index.js weitergeleitet
 app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js verwendet
-////app.use("/app",express.static(__dirname + "/public")); //no idea...
-
 
 
 //#### Default Page ####
