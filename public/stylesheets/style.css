@@ -1,0 +1,96 @@
+body {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #313131; /*linen;*/
+	margin-left: 60px;
+	color: white;
+}
+a {
+  color: #00B7FF;
+}
+h1 {
+  color: rgb(255, 125, 125);/*maroon;*/
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+h2 {
+  color: rgb(255, 125, 125);/*maroon;*/
+  margin: 0px 0px 5px 10px; /*oben rechts unten links*/
+}
+/* Input */
+input{
+    margin-left: 10px
+}
+/* Button */
+button{
+	margin-top: 5px;
+    background-color: rgb(125, 189, 261);
+    width: 73px;
+    height: 35px;
+    outline: none;
+    border: none;
+    margin-bottom: 3px;
+	font-weight: bold;
+    /*margin-left: 2px;*/
+    /*box-shadow: 1px 6px rgb(134, 134, 134);*/
+}
+button:hover {
+    background-color: #bdbdbd;
+}
+button:active {
+    box-shadow: inset 0px 0px 0px 1px black;
+    /*box-shadow: 1px 3px rgb(36, 36, 36);*/
+    /*transform: translateY(3px);*/
+}
+#popUpDiv {
+	/* mittig zentrieren*/
+	left: 0%;	
+	right: 0%;
+	margin-left: auto; 
+	margin-right: auto;
+	top:15%;
+
+	width: 600px;
+	padding: 30px 2px 30px 2px; /*oben rechts unten links*/
+	text-align: center;
+	background-color: #f4f4f4;
+	margin-top: 5px;
+	position: fixed;
+	border: 3px solid #939393;
+	display: none; /*damit wird es sichtbar oder unsichtbar gemacht*/
+}
+input[name=score] {
+    pointer-events: none;
+}
+.btn{
+  width: 80px;
+  height:30px;
+  margin: 2px 0 0 0;
+  display: inline-block;
+  background-color: #3CBFF5;
+  border:none;
+  color: white;
+}
+.cancel{
+	background-color: #f34339;
+    width: 70px;
+  	height:22px;
+}
+/* Table */
+table tr:nth-child(odd) {
+  background-color: rgb(215, 95, 95);
+}
+table tr:nth-child(even) {
+  background-color: rgb(215, 154, 154);
+}
+table th {
+  background-color: rgb(105, 159, 231);
+  Border-bottom: 2px solid black;
+}
+th, td {
+  padding: 10px 30px 10px 30px;
+}
+table {
+  border-collapse: collapse;
+  border: 3px solid #666666;
+}
