@@ -120,7 +120,7 @@ score: Number
 });
 var UserModel = mongoose.model('UserModel', UserModelSchema ); //document = 1 object
 
-//Einmalige Operationen für Tests
+//Einmalige Operationen für Testzwecke !
 db.once("open",function(){
 	//To delete all data in UserModel
 	//Empty matches all
