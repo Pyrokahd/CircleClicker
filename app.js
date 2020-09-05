@@ -12,8 +12,8 @@ var config = require('./config');
 ////getting body parser (erst npm install body_parser ? oder als dev --save-dev dahinter) Um das im package.json als dependencie zu speichern
 var bodyParser = require("body-parser");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index'); //not in use
+var usersRouter = require('./routes/users'); //not in use
 
 var app = express();
 app.use(helmet()); //Helmet is a middleware package. It can set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public'))); //__dirname = local roo
 ////app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+//both not in use
 app.use('/index', indexRouter);  //BeimPfad localhost:3000/index wird index.js verwendet , der request wird an index.js weitergeleitet
 app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js verwendet
 
@@ -42,7 +43,6 @@ app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js v
 //#### Default Page ####
 //Um beim pfad server:port/ die main.html zurück zu geben
 app.get('/', function(req, res, next) {
-	//res.setHeader("Content-Security-Policy", "script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js");
 	res.sendFile(path.join(__dirname + "/public/main.html")); //Um bei / als pfad die main.html zu geben
 });
 //#################

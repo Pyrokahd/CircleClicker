@@ -1,6 +1,5 @@
 // Event Listener
 setTimeout(requestLeaderboard,1200);
-console.log("Teste script");
 
 document.getElementById("startBtn").addEventListener("click", startGame);
 document.getElementById("showPopUpBtn").addEventListener("click", showPopUp);
