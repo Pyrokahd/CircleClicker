@@ -104,7 +104,7 @@ app.get('/getScore', function(req, res, next) {
 //Set up default mongoose connection
 //Connect to Mongodb Atlas cloud db
 //TODO fix harcoded username and Password
-var mongoDB = config.mongDBConnection;
+var mongoDB = process.env.MONGODB_URI || config.mongDBConnection; //environment MONGODB_URI variable or the one from the config
 mongoose.connect(mongoDB, { useNewUrlParser: true },);
 
 //Get the default connection
