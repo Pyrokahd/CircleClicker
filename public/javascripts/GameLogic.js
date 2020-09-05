@@ -121,10 +121,10 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 			currentTime = 0;
 		}
 		
-		//every 5 spawns reduce time by 0.05. If its at 0.1 spawningTime only reduce once more after 5 spawns
+		//every 2 spawns reduce time by 0.1. If its at 0.1 spawningTime only reduce once more after 5 spawns
 		if((amountOfSpawns >= 2 && spawnTimeVariable > 0.1) || (amountOfSpawns >= 25 && spawnTimeVariable > 0.05)){
 			amountOfSpawns = 0; //reset spawns
-			spawnTimeVariable = spawnTimeVariable - 0.05; //reduce spawnTime Variable
+			spawnTimeVariable = spawnTimeVariable - 0.1; //reduce spawnTime Variable
 			spawnTimeVariable = Math.round(spawnTimeVariable*100)/100; //Round to 2 decimals
 		}
 	}
@@ -140,27 +140,30 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 		console.log("starting");
 		clearInterval(myGameArea.intervalTimer); //clear existing interval
 		myGameArea.start();
-		updateGameArea();
+		//updateGameArea();
 	}
   
 	//Updates all elements, so that moving elements actually move
 	function updateGameArea(){
-		myGameArea.clear();
-		myGameArea.allCircles.forEach((circle) => circle.update());
-		
-		//highscore und lifes anpassen
-		document.getElementById("lifes").innerHTML = "Lifes: "+myGameArea.lifes;
-		document.getElementById("highscore").innerHTML = "Points: "+myGameArea.highscore;
-		
-		//Check for Game Over
-		if(myGameArea.lifes <= 0){
-			clearInterval(myGameArea.intervalTimer);
-			//clearInterval(myGameArea.intervalGame);
-			//alert("Game over! Score: "+myGameArea.highscore);
+		if(myGameArea.running){
+			myGameArea.clear();
+			myGameArea.allCircles.forEach((circle) => circle.update());
 			
-			showPopUp();
-			document.getElementById("scoreInput").value = myGameArea.highscore;
-			document.getElementById("canvasArea").innerHTML = "";
+			//highscore und lifes anpassen
+			document.getElementById("lifes").innerHTML = "Lifes: "+myGameArea.lifes;
+			document.getElementById("highscore").innerHTML = "Points: "+myGameArea.highscore;
+			
+			//Check for Game Over
+			if(myGameArea.lifes <= 0){
+				myGameArea.running = false;
+				clearInterval(myGameArea.intervalTimer);
+				//clearInterval(myGameArea.intervalGame);
+				//alert("Game over! Score: "+myGameArea.highscore);
+				
+				showPopUp();
+				document.getElementById("scoreInput").value = myGameArea.highscore;
+				document.getElementById("canvasArea").innerHTML = "";
+			}
 		}
 	}
 	
@@ -172,6 +175,7 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 		canvas : document.createElement("canvas"), 
 		//start Function to set Canvas and get the context of it (for drawing)
 		start : function() {
+			this.running = true;
 			this.canvas.setAttribute("id","myCanvas");
 			this.canvas.width = (960/1.8);
 			this.canvas.height = (520/1.5);
@@ -253,6 +257,7 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 	  //Handling despawning if time is up
 	  this.notClickedInTime = function(){
 		_this.despawn();
+
 		//Change font of lifes as signal
 		document.getElementById("lifes").style.color = "red";
 		document.getElementById("lifes").style.fontWeight = "bold";
@@ -261,13 +266,14 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 		myGameArea.lifes -= 1;
 		updateGameArea();
 		console.log("new lifes: "+myGameArea.lifes);
+		
 	  },
 	  this.almostOutOfTime = function(){
 		_this.color = "blue";
 		updateGameArea();
 	  }
-	  this.timeout1 = setTimeout(this.notClickedInTime,1500); //nach 1.5 sek verschwindet der Kreis 
-	  this.timeout2 = setTimeout(this.almostOutOfTime,1200); //Farbwechsel, als Signal, dass der Kreis gleich verschwindet
+	  this.timeout1 = setTimeout(this.notClickedInTime,1200); //nach 1.5 sek verschwindet der Kreis 
+	  this.timeout2 = setTimeout(this.almostOutOfTime,1000); //Farbwechsel, als Signal, dass der Kreis gleich verschwindet
 	}  
 	//###################
 	
