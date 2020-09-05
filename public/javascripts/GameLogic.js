@@ -1,3 +1,12 @@
+// Event Listener
+setTimeout(requestLeaderboard,1200);
+console.log("Teste script");
+
+document.getElementById("startBtn").addEventListener("click", startGame);
+document.getElementById("showPopUpBtn").addEventListener("click", showPopUp);
+document.getElementById("submitBtn").addEventListener("click", sendScore);
+document.getElementById("resetBtn").addEventListener("click", showPopUp);
+
 //###########################
 	//#Server Communcation Parts#
 	//###########################
@@ -93,7 +102,7 @@
 	const cRadius = 20;
 	//timer vars
 	amountOfSpawns = 0; //To check when to reduce spawnTime
-	spawnTimeVariable = 1.4; //Spawn every second to start
+	spawnTimeVariable = 1.2; //Spawn every second to start
 	currentTime = 0;
 	//handles the spawning times and spawns new circles
 	//Basically the GameLoop
@@ -282,7 +291,8 @@
 		//Get offset of the canvas element compared to the screen, since the point coordinates are in screen dimensions but circle in canvas dimensions
 		canvasYOffset = window.scrollY + document.querySelector('#myCanvas').getBoundingClientRect().top // Y
 		canvasXOffset = window.scrollX + document.querySelector('#myCanvas').getBoundingClientRect().left // X
-		return Math.sqrt( Math.pow((point.x-(circle.x + canvasXOffset)),2) + Math.pow((point.y - (circle.y + canvasYOffset)),2) ) < circle.rad; //if Euclid Distance to center < circle.radius
+		yScrollOffset = window.scrollY;
+		return Math.sqrt( Math.pow((point.x-(circle.x + canvasXOffset)),2) + Math.pow((point.y - (circle.y + canvasYOffset - yScrollOffset)),2) ) < circle.rad; //if Euclid Distance to center < circle.radius
 	}
 	
 	function resetHighscoreFont(){

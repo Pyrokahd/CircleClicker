@@ -42,7 +42,8 @@ app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js v
 //#### Default Page ####
 //Um beim pfad server:port/ die main.html zurück zu geben
 app.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname + "/public/main.html")); //Um bei / als pfad die main.html zu geben
+	//res.setHeader("Content-Security-Policy", "script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js");
+	res.sendFile(path.join(__dirname + "/public/main.html")); //Um bei / als pfad die main.html zu geben
 });
 //#################
 //### Responses ###

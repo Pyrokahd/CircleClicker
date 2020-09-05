@@ -7,16 +7,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LittleWebGame</title>
+	
 	<!-- 
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
 	
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	<meta http-equiv="content_security_policy" content="default-src 'self' style-src 'self' 'unsafe-inline';">
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="/javascripts/GameLogic.js"></script>
+	<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	
+	
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; manifest-src 'self'">-->
+	
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+	
+	
 
   </head>
-  <body onload="requestLeaderboard()">
+  <body >
 	<div id="backgroundDiv" style="background-color: rgba(0, 0, 0, .6); width:110%; height:110%; display:none; position:absolute; margin:0px: padding:0px; top: -10%; left: -10%">
 		
 		<div id="popUpDiv" style="display: none; color: black;">
@@ -33,10 +42,11 @@
 					<input id="scoreInput" type="text" name="score" value="score" tabindex="-1">
 				</div>
 				<div>
-					<button type="submit" class="btn" onclick="sendScore()" >send</button>
+					<button id="submitBtn" type="submit" class="btn">send</button>
 				</div>
 				<div>
-					<button type="reset" class="btn cancel" onclick="showPopUp()">cancel</button>
+					<!-- calling showPopUp a second time closes it -->
+					<button id="resetBtn" type="reset" class="btn cancel">cancel</button>
 				</div>
 			<!--</form>-->
 			</div>
@@ -54,7 +64,7 @@
 		  </div>
 		  
 		  <div class="item" style="margin: 0px">
-			<Button id="startBtn" onClick="startGame()">Start</Button>
+			<Button id="startBtn">Start</Button>
 		  </div>
 			
 		  <div class="item" style="margin: 0px; margin-top: 20px">
@@ -72,7 +82,7 @@
 		<div id="Right" style="display: flex; flex-direction:column; padding-right: 12px; margin-right: 12px;">
 		
 		  <div class="item">
-			<button onclick="showPopUp()" style="width: 100px">Test Pop up</button>
+			<button id="showPopUpBtn" style="width: 100px">Test Pop up</button>
 		  </div>
 		  
 		</div>
@@ -87,5 +97,9 @@
 		</div>
 	</div>
 	
+	
+
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/GameLogic.js"></script>
   </body>
 </html>
