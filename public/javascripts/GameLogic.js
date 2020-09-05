@@ -101,7 +101,7 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 	const cRadius = 20;
 	//timer vars
 	amountOfSpawns = 0; //To check when to reduce spawnTime
-	spawnTimeVariable = 1.2; //Spawn every second to start
+	spawnTimeVariable = 1; //Spawn every second to start
 	currentTime = 0;
 	//handles the spawning times and spawns new circles
 	//Basically the GameLoop
@@ -121,7 +121,7 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 		}
 		
 		//every 2 spawns reduce time by 0.1. If its at 0.1 spawningTime only reduce once more after 5 spawns
-		if((amountOfSpawns >= 2 && spawnTimeVariable > 0.1) || (amountOfSpawns >= 25 && spawnTimeVariable > 0.05)){
+		if((amountOfSpawns >= 3 && spawnTimeVariable > 0.2) || (amountOfSpawns >= 25 && spawnTimeVariable > 0.05)){
 			amountOfSpawns = 0; //reset spawns
 			spawnTimeVariable = spawnTimeVariable - 0.1; //reduce spawnTime Variable
 			spawnTimeVariable = Math.round(spawnTimeVariable*100)/100; //Round to 2 decimals
