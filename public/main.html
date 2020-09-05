@@ -7,31 +7,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LittleWebGame</title>
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+	
 	<!-- 
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
-	
-	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-	<meta http-equiv="content_security_policy" content="default-src 'self' style-src 'self' 'unsafe-inline';">
-	
-	<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-	
-	
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; manifest-src 'self'">-->
+		-->
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'"> 
 	
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-	
-	
 
   </head>
   <body >
-	<div id="backgroundDiv" style="background-color: rgba(0, 0, 0, .6); width:110%; height:110%; display:none; position:absolute; margin:0px: padding:0px; top: -10%; left: -10%">
+	<div id="backgroundDiv">
 		
-		<div id="popUpDiv" style="display: none; color: black;">
+		<div id="popUpDiv">
 		<h1>Game Over</h1>
 		<h2>Submit Score</h2>
-			<div style="display: flex; flex-direction: column;">
+			<div class="flexColumn" >
 			<!--<form action="http://localhost:3000/score" method="POST">-->
 				<div>
 					<label class="item" for="name"><b>Name: </b></label>
@@ -56,43 +46,43 @@
 	
   
 	<h1>Circle Clicker</h1>
-	<div id="header" style="display: flex; flex-direction: row;">
-		<div id="Left" style="display: flex; flex-direction:column; padding-right: 12px; margin-right: 12px;">		  
+	<div id="header" class="flexRow">
+		<div class="flexColumn" id="gameTextBox">		  
 						  
-		  <div class="item" style="margin: 4px">
+		  <div class="item" id="gameText">
 			Click on all the red circles before they disappear! <br><br> You can hit multiple circles at once, if they overlap.
 		  </div>
 		  
-		  <div class="item" style="margin: 0px">
+		  <div class="item">
 			<Button id="startBtn">Start</Button>
 		  </div>
 			
-		  <div class="item" style="margin: 0px; margin-top: 20px">
-			<div id="" style="display: flex; flex-direction: row;">
-				<div id="lifes" class="item" style="margin-right: 90px">
+		  <div class="item" id="specialMargin1">
+			<div class="flexRow">
+				<div id="lifes" class="item" id="specialMargin2">
 					Lifes: 
 				</div>
-				<div id="highscore" class="item" style="margin: 0px">
+				<div id="highscore" class="item">
 					Points:
 				</div>
 			</div>
 		  </div>
 			
 		</div>
-		<div id="Right" style="display: flex; flex-direction:column; padding-right: 12px; margin-right: 12px;">
+		<div id="testButtonBox" class="flexColumn">
 		
 		  <div class="item">
-			<button id="showPopUpBtn" style="width: 100px">Test Pop up</button>
+			<button id="showPopUpBtn">Test Pop up</button>
 		  </div>
 		  
 		</div>
 	</div>
 
-	<div id="Left" style="display: flex; flex-direction:column;">
-		<div class="item" id="canvasArea" style="background-color:; margin-top:5px;">
+	<div class="flexColumn">
+		<div class="item" id="canvasArea">
 		
 		</div>
-		<div class="item" id="leaderboardArea" style="background-color: ; margin-top: 20px;">
+		<div class="item" id="leaderboardArea">
 			<h2>Leaderboard</h2>
 		</div>
 	</div>

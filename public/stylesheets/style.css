@@ -42,6 +42,9 @@ button:active {
     /*box-shadow: 1px 3px rgb(36, 36, 36);*/
     /*transform: translateY(3px);*/
 }
+#showPopUpBtn{
+	width: 100px;
+}
 #popUpDiv {
 	/* mittig zentrieren*/
 	left: 0%;	
@@ -57,8 +60,57 @@ button:active {
 	margin-top: 5px;
 	position: fixed;
 	border: 3px solid #939393;
+	color: black;
 	display: none; /*damit wird es sichtbar oder unsichtbar gemacht*/
 }
+#backgroundDiv{
+	background-color: rgba(0, 0, 0, .6);
+	width:110%;
+	height:110%;
+	display:none;
+	position:absolute;
+	margin:0px;
+	padding:0px;
+	top: -10%;
+	left: -10%;
+}
+
+.item{
+	margin: 0px;
+}
+#specialMargin1{
+	margin-top: 20px;
+}
+#specialMargin2{
+	margin-right: 90px;
+}
+.flexColumn{
+	display: flex;
+	flex-direction: column;
+}
+.flexRow{
+	display: flex;
+	flex-direction: row;
+}
+#gameTextBox{
+	padding-right: 12px;
+	margin-right: 12px;
+}
+#gameText{
+	margin: 4px;
+}
+#testButtonBox{
+	margin-right: 12px;
+	padding-right: 12px;
+}
+
+#canvasArea{
+	margin-top:5px;
+}
+#leaderboardArea{
+	margin-top: 20px;
+}
+
 input[name=score] {
     pointer-events: none;
 }
