@@ -16,7 +16,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-//app.use(helmet()); //Helmet is a middleware package. It can set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
+app.use(helmet()); //Helmet is a middleware package. It can set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
 					// (see the docs for more information on what headers it sets and vulnerabilities it protects against).
 					// https://www.npmjs.com/package/helmet
 

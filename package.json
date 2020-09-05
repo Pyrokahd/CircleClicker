@@ -6,7 +6,9 @@
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=circleclickerserver:* npm run devstart",
-    "test": "SET DEBUG=circleclickerserver:* & nodemon ./bin/www"
+    "test": "SET DEBUG=circleclickerserver:* & nodemon ./bin/www",
+	"buildCopy": "cross-env NODE_ENV=production",
+    "buildCopy": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -19,6 +21,8 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "nodemon": "^2.0.4"
   }
+    
 }
