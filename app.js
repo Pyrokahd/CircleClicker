@@ -19,6 +19,20 @@ var app = express();
 app.use(helmet()); //Helmet is a middleware package. It can set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
 					// (see the docs for more information on what headers it sets and vulnerabilities it protects against).
 					// https://www.npmjs.com/package/helmet
+					
+//app.use(helmet.contentSecurityPolicy());
+//app.use(helmet.dnsPrefetchControl());
+/*app.use(helmet.expectCt());
+app.use(helmet.frameguard());
+app.use(helmet.hidePoweredBy());
+app.use(helmet.hsts());
+app.use(helmet.ieNoOpen());
+app.use(helmet.noSniff());
+app.use(helmet.permittedCrossDomainPolicies());
+app.use(helmet.referrerPolicy());
+app.use(helmet.xssFilter());*/					
+					
+					
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); //Where are the templates
@@ -74,7 +88,7 @@ app.get('/getScore', function(req, res, next) {
 	query.select('name score -_id'); 
 	// sort by score
 	query.sort({ score: -1 });
-	//limit our results to 5 items
+	//limit our results to 10 items
 	query.limit(10);
 	query.lean();
 	// execute the query at a later time
