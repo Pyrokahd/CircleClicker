@@ -84,13 +84,16 @@ app.get('/getScore', function(req, res, next) {
 	// Query 
 	// find all athletes that play tennis
 	var query = UserModel.find();
-	// selecting the 'name' and 'score' fields but no _id field (kann man eigentlich auch drin lassen)
+	// selecting the 'name' and 'score' fields but no _id field (kann man eigentlich auch drin lassen, lean entfertn das bereits)
 	query.select('name score -_id'); 
 	// sort by score
 	query.sort({ score: -1 });
 	//limit our results to 10 items
 	query.limit(10);
+	//to return JS objects not Mongoose Documents
 	query.lean();
+	
+	//Query ergibt ein array von JS-Objekten mit name und score
 	// execute the query at a later time
 	query.exec(function (err, queryResult) {
 	  if (err) return handleError(err);
