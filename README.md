@@ -6,6 +6,6 @@ The Skeleton Server was created using the Express Application Generator using th
 Note that it is not a secure Application!
 
 - Port and Server URL are set in the www file in /bin
-- For the connection the String in config.js has to be set.
+- For the DB connection the String in config.js has to be set.
 
 
