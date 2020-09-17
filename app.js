@@ -57,10 +57,11 @@ app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js v
 //#### Default Page ####
 //Um beim pfad server:port/ die main.html zurück zu geben
 app.get('/', function(req, res, next) {
+	console.info("about to send main html");
 	res.sendFile(path.join(__dirname + "/public/main.html")); //Um bei / als pfad die main.html zu geben
 });
-//#################
-//### Responses ###
+//##################################
+//### Responses/Request handler) ###
 app.post('/sendScore', function(req, res, next) {
 	var _name = req.body.name;
 	var _score = req.body.score;
@@ -173,7 +174,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  //res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);

@@ -4,7 +4,7 @@ setTimeout(requestLeaderboard,1200);
 document.getElementById("startBtn").addEventListener("click", startGame);
 document.getElementById("showPopUpBtn").addEventListener("click", showPopUp);
 document.getElementById("submitBtn").addEventListener("click", sendScore);
-document.getElementById("resetBtn").addEventListener("click", showPopUp);
+document.getElementById("resetBtn").addEventListener("click", hidePopUp);
 
 //###########################
 	//#Server Communcation Parts#
@@ -12,7 +12,7 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 	const serverURL = window.location.origin;//"http://localhost:3000";
 	
 	function sendScore(){
-		showPopUp(); //vielleicht auch erst beim erhalten der Daten?
+		
 		var sScore = document.getElementById("scoreInput").value;
 		var sName = document.getElementById("nameInput").value;
 		if (sName == "") {sName = "[noName]";} //In case no name has been entered
@@ -41,6 +41,8 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 				} //, 300:()=>{}, ...
 			}
 		});
+		
+		hidePopUp(); //vielleicht auch erst beim erhalten der Daten?
 	}
 	
 	function requestLeaderboard(){
@@ -73,7 +75,7 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 	
 	
 	
-	function showPopUp() {
+	/*function showPopUp() {
 		var x = document.getElementById("popUpDiv");
 		var y = document.getElementById("backgroundDiv");
 		
@@ -84,6 +86,25 @@ document.getElementById("resetBtn").addEventListener("click", showPopUp);
 			x.style.display = "none";
 			y.style.display = "none";
 		}
+	}*/
+	*function showPopUp() {
+		var x = document.getElementById("popUpDiv");
+		var y = document.getElementById("backgroundDiv");
+		
+		if (x.style.display === "none") {
+			x.style.display = "block";
+			y.style.display = "block";
+		} else {
+			x.style.display = "none";
+			y.style.display = "none";
+		}
+	}
+	function hidePopUp() {
+		var x = document.getElementById("popUpDiv");
+		var y = document.getElementById("backgroundDiv");
+		
+			x.style.display = "none";
+			y.style.display = "none";
 	}
   
   
