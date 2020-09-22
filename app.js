@@ -43,7 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'public'))); //__dirname = local root directory Use express to server all static files in the /public folder (in project root)
+app.use(express.static(path.join(__dirname, 'public'))); //__dirname = local root directory Use express to serve all static files in the /public folder (in project root)
 
 ////Using body_parser for JSON objects
 ////app.use(bodyParser.json());
