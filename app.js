@@ -4,7 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose'); //Datenbank handler
-var helmet = require('helmet');
+
+//var helmet = require('helmet');
+//helmet modules by their own.
+/*var contentSecurityPolicy = require("helmet-csp");
+//var expectCt = require("expect-ct");
+var referrerPolicy = require("referrer-policy");
+var noSniff = require("dont-sniff-mimetype");
+var dnsPrefetchControl = require("dns-prefetch-control");
+var ieNoOpen = require("ienoopen");
+var frameguard = require("frameguard");
+var permittedCrossDomainPolicies = require("helmet-crossdomain");
+var hidePoweredBy = require("hide-powered-by");
+var xssFilter = require("x-xss-protection");*/
+
 
 //require my config for the MongoDB URL
 var config = require('./config');
@@ -12,26 +25,30 @@ var config = require('./config');
 ////getting body parser (erst npm install body_parser ? oder als dev --save-dev dahinter) Um das im package.json als dependencie zu speichern
 var bodyParser = require("body-parser");
 
-var indexRouter = require('./routes/index'); //not in use
-var usersRouter = require('./routes/users'); //not in use
+
+//var indexRouter = require('./routes/index'); //not in use
+//var usersRouter = require('./routes/users'); //not in use
 
 var app = express();
-app.use(helmet()); //Helmet is a middleware package. It can set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
+console.log("using helmet");
+//app.use(helmet()); //Helmet is a middleware package. It can set appropriate HTTP headers that help protect your app from well-known web vulnerabilities
 					// (see the docs for more information on what headers it sets and vulnerabilities it protects against).
 					// https://www.npmjs.com/package/helmet
-					
-//app.use(helmet.contentSecurityPolicy());
-//app.use(helmet.dnsPrefetchControl());
-/*app.use(helmet.expectCt());
-app.use(helmet.frameguard());
-app.use(helmet.hidePoweredBy());
-app.use(helmet.hsts());
-app.use(helmet.ieNoOpen());
-app.use(helmet.noSniff());
-app.use(helmet.permittedCrossDomainPolicies());
-app.use(helmet.referrerPolicy());
-app.use(helmet.xssFilter());*/					
-					
+
+/*////use all helmet features manually
+app.use(contentSecurityPolicy());
+//app.use(expectCt());
+app.use(referrerPolicy());
+app.use(noSniff());
+app.use(dnsPrefetchControl());
+app.use(ieNoOpen());
+app.use(frameguard());
+app.use(permittedCrossDomainPolicies());
+app.use(hidePoweredBy());
+app.use(xssFilter());	
+////app.use(helmet.hsts());
+*/		
+
 					
 
 // view engine setup
