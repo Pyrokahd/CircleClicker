@@ -87,19 +87,17 @@ document.getElementById("resetBtn").addEventListener("click", hidePopUp);
 			y.style.display = "none";
 		}
 	}*/
-	*function showPopUp() {
+	function showPopUp() {
+		console.log("open pop up!");
 		var x = document.getElementById("popUpDiv");
 		var y = document.getElementById("backgroundDiv");
 		
-		if (x.style.display === "none") {
 			x.style.display = "block";
 			y.style.display = "block";
-		} else {
-			x.style.display = "none";
-			y.style.display = "none";
-		}
+
 	}
 	function hidePopUp() {
+		console.log("close pop up");
 		var x = document.getElementById("popUpDiv");
 		var y = document.getElementById("backgroundDiv");
 		

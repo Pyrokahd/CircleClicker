@@ -50,14 +50,18 @@ app.use(express.static(path.join(__dirname, 'public'))); //__dirname = local roo
 app.use(bodyParser.urlencoded({extended:true}));
 
 //both not in use
-app.use('/index', indexRouter);  //BeimPfad localhost:3000/index wird index.js verwendet , der request wird an index.js weitergeleitet
-app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js verwendet
+//app.use('/index', indexRouter);  //BeimPfad localhost:3000/index wird index.js verwendet , der request wird an index.js weitergeleitet
+//app.use('/users', usersRouter); //Beim pfad localhost:3000/users wird users.js verwendet
 
+//small test, doesnt work...
+/*app.get('/', function(req, res, next){
+	console.log("redirect to http?");
+	res.redirect('http://' + req.headers.host + req.url);
+});*/
 
 //#### Default Page ####
 //Um beim pfad server:port/ die main.html zurück zu geben
 app.get('/', function(req, res, next) {
-	console.info("about to send main html");
 	res.sendFile(path.join(__dirname + "/public/main.html")); //Um bei / als pfad die main.html zu geben
 });
 //##################################
@@ -65,7 +69,7 @@ app.get('/', function(req, res, next) {
 app.post('/sendScore', function(req, res, next) {
 	var _name = req.body.name;
 	var _score = req.body.score;
-	console.log("recieves shit: "+_name +" "+_score);
+	console.log("recieved: "+_name +" "+_score);
 	
 	//in Datenbank speichern
 	var testInstance = new UserModel({name: _name, score: _score});
@@ -174,7 +178,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  //res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
